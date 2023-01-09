@@ -1,34 +1,24 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Todos', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      title: {
-        type: Sequelize.STRING
-      },
-      dueDate: {
-        type: Sequelize.DATEONLY
-      },
-      completed: {
-        type: Sequelize.BOOLEAN
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo_l6",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Todos');
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo_l6_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
-};
+}
